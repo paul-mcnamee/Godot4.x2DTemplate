@@ -1,113 +1,68 @@
-![godot-gamejam](logo.png)
+# SurvivorCircles
 
-**🤖 Godot Engine 4.0 template to better get started for gamejams with your game!**
+2d vampire survivor inspired game.
 
-![](https://img.shields.io/badge/Godot%20Compatible-4.0%2B-%234385B5) [![](https://img.shields.io/discord/785246324793540608.svg?label=&logo=discord&logoColor=ffffff&color=7389D8&labelColor=6A7EC2)](https://discord.com/invite/CKBuE5djXe)
+## Common Links
 
-# 🧪 Features
+<https://github.com/paul-mcnamee/SurvivorCircles>
+<https://docs.godotengine.org/en/4.1/index.html>
 
-### 🌌 **Game Settings**
+shaders
+<https://godotshaders.com/shader/?orderby=likes>
 
-This template project comes with game settings out of the box:
+## Attributions
 
-- **Audio volume** (Master, Sound, Music)
-- **Game Language** (English only by default)
+### Assets
 
-### ✨ **Bootsplash scene support**
+Kenney.nl - VERY nice assets, thank you
 
-Either use the default Godot bootsplash or define your own logo bootsplashes!
+### Addons
 
-### 🎩 Basic menu flow (main menu, settings, pause)
+## Development Notes
 
-This project comes with basic menu navigation that allows you to navigate between ingame, settings and quitting the game.
+I will try to update the notes of the development sessions as I go so I can hopefully have a history of what I did and maybe I will learn from it or maybe it will just be cathartic to brain dump everything into one place for this game...
 
-### 💾 Save Game Integration
+### 10/4/2023
 
-Automatically saves the state of the game on exit. Starting a new game overrides the existing save game. Any game object that needs to be saved has to be part of the "Persist" group.
+My goal for the day was to get all of the addons that I have been looking through and sift out the ones that seem decent for a 2d project.
 
-### 🌎 Translation support (i18n)
+1. Templates are annoying to find a good one, there are a lot of bad ones out there, I combined 2 for this project to hopefully save some time and not reinvent the wheel.
+2. Addons are also a sea of garbage so hopefully some of the ones I found would help with this project and save time
+3. Apparently the example projects are mostly all just for youtube videos and no one is actually trying to write permanent code it seems.
 
-Comes with pre-defined translations that can be extended.
+I started with the bitbrain template here:
+<https://github.com/bitbrain/godot-gamejam>
 
-### ⏸ Pause Menu
+Then I added the crystal-bit template here
+<https://github.com/crystal-bit/godot-game-template/tree/main>
 
-The `IngameScene` supports a pause menu to temporarily pause the game.
+I added a bunch of addons to a list in github that seemed good for godot 4
+<https://github.com/stars/paul-mcnamee/lists/godot-4-tools?page=1>
 
-### _🚀 Automatic [itch.io](https://itch.io) deployment_ (coming soon!)
+I think these are all of the addons that I initially added, they all seemed generally good for 2d games.
 
-Create a release branch and merge your Git commits into it. Via Github Actions, your game will be automatically deployed to itch.io! For more information, [read this guide](https://bitbra.in/2020/08/01/publish-godot-game-to-itchio.html).
+1. <https://github.com/godotessentials/2d-essentials/tree/main>
+2. <https://github.com/OctoD/godot-gameplay-systems/tree/main>
+3. <https://github.com/DawnGroveStudios/GodotLogger/tree/main>
+4. <https://github.com/uzkbwza/BurstParticles2D/tree/master>
+5. <https://github.com/ramokz/phantom-camera>
+6. <https://github.com/nathanhoad/godot_sound_manager>
+7. <https://github.com/nathanhoad/godot_dialogue_manager>
+8. <https://github.com/appsinacup/godot-box2d>
+9. <https://github.com/coppolaemilio/dialogic>
+   - this one seems complex and might remove it but need to look at godot_dialogue_manager if it can handle my needs.
+10. <https://github.com/godot-extended-libraries/godot-debug-menu>
 
-> **⚠ This is not yet supported until Godot reaches Release Candidate status!**
+These are the addons that I have not evaluated fully, which I will probably need to add to the game when the time comes to make some terrain and generate a world
+<https://github.com/Drejzer/FloorArchitect/tree/master>
+<https://github.com/edwin-cox/godot-infinite-worldmap>
 
-# 🎮 Getting started!
+There are some console errors and I still need to look through all of the addons to configure them and do an initial setup, but so far I am happy with the list that I curated, and think that it should save me a lot of work if they actually do what they are supposed to do.
 
-1. Click `Use this template` in Github ([learn more about Template Repositories](https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-repository-from-a-template))
-2. Open the project in Godot Engine 4
-3. Customize it to your needs (see [🧱 Customization](#-customization))
-4. Open the `IngameScene` and start building your game!
+I want to add this addon, but there were some files that were conflicting so I will need to manually merge them in order to continue:
+<https://github.com/PunchablePlushie/godot-game-settings/wiki/Getting-Started>
 
-# 🔌 Compatible Gamejams
+#### Todo's for next time
 
-> **Not all gamejams allow project templates!** Please make sure to carefully read the gamejam rules before using this project, otherwise you might **risk of being disqualified**!
-
-Down below is a list of some compatible gamejam formats that permit using this repository as a template:
-
-- [GoGodotJam](https://gogodotjam.com/the-jam/)
-- [Ludum Dare](https://ldjam.com/events/ludum-dare/rules)
-- [GMTK Game Jam](https://itch.io/jam/gmtk-jam-2022)
-- [Brackeys Gamejam](https://itch.io/jam/brackeys-7)
-- [Global Game Jam](https://globalgamejam.org/news/be-cool-rules)
-- [GameDevLondon Summer Jam](https://itch.io/jam/game-dev-london-summer-jam-2021)
-- [Godot Wild Jam](https://itch.io/jam/godot-wild-jam-49)
-
-
-# 🧱 Customization
-
-This project is built to be as generic as possible and it can be fully adjusted to your needs.
-
-## Defining custom UI theme
-
-Search for the file `theme.tres` and open it. The [Godot theme editor](https://docs.godotengine.org/en/stable/tutorials/ui/gui_using_theme_editor.html) should appear. Feel free to customise the UI to your needs. Any `Control` node will use this theme by default:
-
-![custom-theme](docs/custom-theme.png)
-
-## Choosing 2D vs 3D
-
-This toolkit is not limited to either 2D or 3D. It has been kept vague on purpose so feel free to build 2D or 3D scenes with it!
-
-## Custom boot splash
-
-Within Godot Engine, head to `scenes/boot` to access boot splash scenes. You can create your custom bootsplash by either modifying `GodotBootsplashScene` or creating a new node of type `Control`. Add `BootsplashScene` as a child and configure its properties as follows:
-
-- `Fade Duration` - the amount of time in milliseconds to fade in/out the bootsplash.
-- `Stay Duration` - the amount of time in milliseconds the bootsplash should stay.
-- `Node` - the node/scene that should be displayed during the bootsplash.
-- `Next Scene` - the next scene that should be loaded after the bootsplash has finished.
-- `Interruptable ` - wether the bootsplash is interruptable or not.
-
-## Add new translation
-
-You will find a translation file in `i18n/translation.csv`. Feel free to extend it to your needs. Godot will automatically pickup the translations if you use them inside your control nodes like `Button` or `Label`. In case you need to manually translate something in a script, call the `tr()` function. 
-
-In case you want to add a new language, add a new column to the `translation.csv` file.
-
-## Game Settings
-
-The game settings are managed in `UserSettings.gd`. You can change the defaults by updating `USER_SETTING_DEFAULTS`. You can also add additional properties to extend them.
-
-The `GameSettings` node and the `GameSettings.gd` script connects to the `UserSettings` by setting it/loading from it.
-
-## Save game configuration
-
-By default, save games are enabled. You can toggle support for save games inside `SaveGame.gd` by changing the `ENABLED` property.
-
-The save game saves any node inside the `IngameScene` that is part of the `Persist` group ([learn more about groups in Godot](https://docs.godotengine.org/en/stable/tutorials/scripting/groups.html)). The save game system will save existing nodes but also nodes that were dynamically added to the scene at runtime!
-
-Currently, the game will only save the scene when exiting the game via the pause menu.
-
-
-# 🍻 Contributing
-
-Feel free to raise a pull request or suggest any changes or improvements you would like to see!
-
-> 🐱‍💻 **PLEASE NOTE:** this project is a template and any contribution should only introduce/extend features that are template related. If something can be its own addon (e.g. movement controller or specific 2D/3D stuff) it probably should be its own (separate) addon.
+1. Look at the features to see if it is necessary, and then resolve any conflicts for this addon:
+   1. <https://github.com/PunchablePlushie/godot-game-settings>
