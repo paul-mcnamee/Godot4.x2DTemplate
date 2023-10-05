@@ -37,7 +37,6 @@ func _ready():
 			var start_methods = cur_scene.get_method_list().filter(contains_start)
 			if start_methods != null:
 				for start_method in start_methods:
-					print ("executing start ", start_method)
 					cur_scene.call(start_method["name"])
 
 func contains_start(cur_dict: Dictionary):
