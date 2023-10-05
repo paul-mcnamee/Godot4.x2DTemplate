@@ -1,7 +1,7 @@
 # meta-name: Default
 # meta-default: true
-extends _BASE_
+extends BeehaveNode
 
 
-func tick(actor: Node, blackboard: Blackboard) -> int:
+func tick(_actor: Node, _blackboard: Blackboard) -> int:
 	return SUCCESS
