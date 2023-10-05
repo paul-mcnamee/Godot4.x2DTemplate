@@ -32,22 +32,22 @@ config/version="0.0.1"
 GodotLogger="*res://addons/logger/logger.gd"
 DebugShortcuts="*res://addons/ggt-debug-shortcuts/autoload/debug_shortcuts.tscn"
 DebugMenu="*res://addons/debug_menu/debug_menu.tscn"
+UserSettings="*res://settings/UserSettings.gd"
 Game="*res://addons/ggt-core/game.gd"
 Transitions="*res://addons/ggt-core/transitions/transitions.tscn"
 Scenes="*res://addons/ggt-core/scenes/scenes.gd"
 Utils="*res://addons/ggt-core/utils/utils.gd"
-UserSettings="*res://settings/UserSettings.gd"
-TurnManager="*res://addons/godot_gameplay_systems/turn_based/./autoloads/turn_manager.gd"
 GodotEssentialsHelpers="*res://addons/2d_essentials/autoload/helpers.gd"
-GodotEssentialsAudio="*res://addons/2d_essentials/autoload/audio/audio.gd"
-GodotEssentialsSceneTransitioner="*res://addons/2d_essentials/autoload/scene_transitions/scene_transitioner.gd"
 GodotEssentialsAchievements="*res://addons/2d_essentials/autoload/achievements/achievements.tscn"
 GodotEssentialsEnvironment="*res://addons/2d_essentials/autoload/dotenv/godotenv.gd"
-BeehaveGlobalMetrics="*res://addons/beehave/metrics/beehave_global_metrics.gd"
 BeehaveGlobalDebugger="*res://addons/beehave/debug/global_debugger.gd"
-Dialogic="*res://addons/dialogic/Other/DialogicGameHandler.gd"
+BeehaveGlobalMetrics="*res://addons/beehave/metrics/beehave_global_metrics.gd"
 DialogueManager="*res://addons/dialogue_manager/dialogue_manager.gd"
 SoundManager="*res://addons/sound_manager/sound_manager.gd"
+TurnManager="res://addons/godot_gameplay_systems/turn_based/./autoloads/turn_manager.gd"
+Dialogic="res://addons/dialogic/Other/DialogicGameHandler.gd"
+GodotEssentialsSceneTransitioner="res://addons/2d_essentials/autoload/scene_transitions/scene_transitioner.gd"
+GodotEssentialsAudio="res://addons/2d_essentials/autoload/audio/audio.gd"
 
 [category]
 
@@ -230,6 +230,10 @@ sprint={
 [internationalization]
 
 locale/translations=PackedStringArray("res://i18n/translation.de.translation", "res://i18n/translation.en.translation")
+
+[physics]
+
+2d/physics_engine="Box2D"
 
 [rendering]
 
