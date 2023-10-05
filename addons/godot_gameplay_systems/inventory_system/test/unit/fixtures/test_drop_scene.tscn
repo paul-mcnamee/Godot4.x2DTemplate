@@ -3,7 +3,6 @@
 [ext_resource type="Script" path="res://addons/godot_gameplay_systems/inventory_system/nodes/drop.gd" id="1_g37ng"]
 [ext_resource type="Script" path="res://addons/godot_gameplay_systems/inventory_system/test/unit/fixtures/test_drop_scene.gd" id="1_ru6ri"]
 [ext_resource type="Script" path="res://addons/godot_gameplay_systems/inventory_system/resources/item.gd" id="2_x3ri7"]
-[ext_resource type="PackedScene" path="res://examples/simple_2d_platformer/coin/coin.tscn" id="3_a73gw"]
 [ext_resource type="Script" path="res://addons/godot_gameplay_systems/inventory_system/resources/drop_group.gd" id="3_ao706"]
 [ext_resource type="Script" path="res://addons/godot_gameplay_systems/inventory_system/resources/drop_table.gd" id="4_gja7w"]
 
@@ -12,7 +11,6 @@ script = ExtResource("2_x3ri7")
 name = &"test000"
 can_stack = false
 decrease_stack_on_use = false
-scene = ExtResource("3_a73gw")
 tags = Array[String]([])
 quantity_current = 1
 quantity_max = 1
