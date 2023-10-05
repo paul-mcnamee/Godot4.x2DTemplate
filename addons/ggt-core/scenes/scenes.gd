@@ -35,7 +35,6 @@ func _ready():
 			cur_scene.pre_start({})
 		if cur_scene.has_method("start"):
 			var start_methods = cur_scene.get_method_list().filter(contains_start)
-			print ("start methods", start_methods)
 			if start_methods != null:
 				for start_method in start_methods:
 					print ("executing start ", start_method)
