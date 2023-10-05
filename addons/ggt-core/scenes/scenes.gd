@@ -34,8 +34,19 @@ func _ready():
 		if cur_scene.has_method("pre_start"):
 			cur_scene.pre_start({})
 		if cur_scene.has_method("start"):
-			cur_scene.start()
+			var start_methods = cur_scene.get_method_list().filter(contains_start)
+			print ("start methods", start_methods)
+			if start_methods != null:
+				for start_method in start_methods:
+					print ("executing start ", start_method)
+					cur_scene.call(start_method["name"])
 
+func contains_start(cur_dict: Dictionary):
+	if (cur_dict["name"] == "start" and cur_dict["args"].size == 0):
+		print ("cr_dict = ", cur_dict)
+		return cur_dict
+	else:
+		return null
 
 func get_last_loaded_scene_data() -> SceneData:
 	return _history.get_last_loaded_scene_data()
