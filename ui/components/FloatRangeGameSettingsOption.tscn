@@ -1,6 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://cpo1u33eut0i4"]
-
-[node name="FloatRangeGameSettingsOption" type="HSlider"]
-custom_minimum_size = Vector2(100, 0)
-
-[connection signal="value_changed" from="." to="." method="_on_float_range_game_settings_option_value_changed"]

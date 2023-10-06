@@ -27,21 +27,35 @@ I will try to update the notes of the development sessions as I go so I can hope
 1. reviewed every addon and removed the redundant or unnecessary components for this game from being autoloaded.
 2. Look at the features to see if it is necessary, and then resolve any conflicts for this addon:
    1. <https://github.com/PunchablePlushie/godot-game-settings>
-3.
+3. look through the default features from the bitbrain template and the crystal bit one
+   1. there are likely some overlap here, I think there might be some overlap for how stuff is saved and possibly how the audio is being managed.
+      1. there was overlap and also a lot of garbage... typical godot template and addon code, half baked and barely works if at all
+   2. the godot game settings addon also added the game_settings folder to the root dir, there is definitely some overlap here
+      1. SaveGame.gd seems like it is overly complicated and actually bad so idk -- this is from the bitbrain template.
+         1. seemed like it was just saving a few properties like rotation, position, color, etc. I think this is probably not great
+      2. I think there are other options for saving game items, seems like the GGS stuff is a bit better but it uses resources which can allow arbitrary code execution if not used properly, not sure if that was fixed in godot 4 or not though.
+      3. the godot game template has some singletons which seem ok, I ran into issues when attempting to load the dialogue manager though because they checked if a scene had a generic "start" method name which is fairly common so it sort of made me doubt if the rest of the stuff is decent or not, need to look into the ggt-core autoloads
+   3. The UI needs to be done in the manner that the shooter tutorial had with a UI scene added as an autoload singleton, that was a good method.
+      1. Some of the stuff in the transitions is pretty nice, it would be cool to have the loading scene if some of the load times are long for scenes and then it could have some tips or something, preferably a little minigame that you can play while loading like the chrome offline dino game, and then keep the high score of the loading mini game. yeah that would be sick.
 
 #### Todo's for next time
 
-1. look through the default features from the bitbrain template and the crystal bit one
-   1. there are likely some overlap here, I think there might be some overlap for how stuff is saved and possibly how the audio is being managed.
-   2. the godot game settings addon also added the game_settings folder to the root dir, there is definitely some overlap here
-2. start adding stuff to the game
+1. menu manager
+   1. keep a stack of the menus that are loaded
+   2. back functionality
+   3. some similar stuff might be in the GGT autoload for scenes but it also might be garbage
+2. save game manager
+   1. still not sure if the godot game settings addon is good or not
+   2. good to setup framework for this now so that when pieces are added to the game it can be added to the save state one at a time
+      1. ideally it could just be a node made with composition that can save itself, not sure how this would work for like inventory or what not, item looks for an inventory signal and then saves it idk
+   3. I bet you can probably just JSON.stringify whole nodes... have to look if there are godot docs about serialization
+3. start adding stuff to the game
    1. player
       1. inventory
       2. equipment
       3. health
    2. enemies
    3. loot
-   4.
 
 ### 10/4/2023
 

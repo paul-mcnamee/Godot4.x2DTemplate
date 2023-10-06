@@ -27,22 +27,16 @@ func _ready() -> void:
 	else:
 		new_game_button.grab_focus()
 
-func start_next_scene(scene: PackedScene):
-	next_scene = scene
-	if new_game and SaveGame.has_save():
-		SaveGame.delete_save()
-	get_tree().change_scene_to_packed(next_scene)
-
 func _on_settings_button_pressed() -> void:
 	new_game = false
-	start_next_scene(settings_scene)
+	SceneManager.goto_scene(settings_scene)
 
 func _on_play_button_pressed() -> void:
-	start_next_scene(game_scene)
+	SceneManager.goto_scene(game_scene)
 
 func _on_continue_button_pressed() -> void:
 	new_game = false
-	start_next_scene(game_scene)
+	SceneManager.goto_scene(game_scene)
 
 func _on_exit_button_pressed() -> void:
 	get_tree().quit()

@@ -1,12 +1,16 @@
-[gd_scene load_steps=5 format=3 uid="uid://c8uj380aoobf0"]
+[gd_scene load_steps=7 format=3 uid="uid://c8uj380aoobf0"]
 
 [ext_resource type="Script" path="res://scenes/SceneManager.gd" id="1_2v3ho"]
 [ext_resource type="PackedScene" uid="uid://bbc1wd0dpm8md" path="res://scenes/boot/StartingSplashLogo.tscn" id="2_ibumx"]
 [ext_resource type="PackedScene" uid="uid://dv2y18ye8j7o0" path="res://scenes/menu/MainMenuScene.tscn" id="3_vcisk"]
 [ext_resource type="PackedScene" uid="uid://jyv4g54adkmo" path="res://ui/overlays/PauseOverlay.tscn" id="4_xv50o"]
+[ext_resource type="PackedScene" uid="uid://r7cwxi8ux4bs" path="res://scenes/settings/MainSettings.tscn" id="5_j7xdb"]
+[ext_resource type="PackedScene" uid="uid://c4gqukowjmkp6" path="res://scenes/gameplay/Game.tscn" id="6_t4uo4"]
 
 [node name="Scenes" type="Node2D"]
 script = ExtResource("1_2v3ho")
 StartingSplashLogo = ExtResource("2_ibumx")
 MainMenu = ExtResource("3_vcisk")
 PauseOverlay = ExtResource("4_xv50o")
+MainSettings = ExtResource("5_j7xdb")
+Game = ExtResource("6_t4uo4")

@@ -1,8 +1,13 @@
 extends Node
 
+signal scene_transition_started
+signal scene_transition_finished
+
 @export var StartingSplashLogo:PackedScene
 @export var MainMenu:PackedScene
-@export var PauseOverlay:PackedScene
+@export var PauseOverlay:PackedScene # TODO: this should probably be a part of the UI and not be loaded here
+@export var MainSettings:PackedScene # TODO: this should probably be a part of the UI and not be loaded here
+@export var Game:PackedScene
 
 # Might want to adapt some of the method mentioned in the comments
 # https://ask.godotengine.org/49360/looking-for-the-best-way-to-handle-multiple-scenes
@@ -30,6 +35,7 @@ func goto_scene_path(path: String):
 
 
 func _deferred_goto_scene(path):
+	scene_transition_started.emit()
 	TransitionLayer.player.play("fade_to_black")
 	await TransitionLayer.player.animation_finished
 	# It is now safe to remove the current scene
@@ -48,3 +54,4 @@ func _deferred_goto_scene(path):
 	get_tree().current_scene = current_scene
 	TransitionLayer.player.play_backwards("fade_to_black")
 	await TransitionLayer.player.animation_finished
+	scene_transition_finished.emit()

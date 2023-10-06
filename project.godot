@@ -35,7 +35,6 @@ TransitionLayer="*res://scenes/transitions/transition_layer.tscn"
 Globals="*res://globals/globals.gd"
 DebugShortcuts="*res://addons/ggt-debug-shortcuts/autoload/debug_shortcuts.tscn"
 DebugMenu="*res://addons/debug_menu/debug_menu.tscn"
-UserSettings="*res://settings/UserSettings.gd"
 Game="*res://addons/ggt-core/game.gd"
 Transitions="*res://addons/ggt-core/transitions/transitions.tscn"
 Scenes="*res://addons/ggt-core/scenes/scenes.gd"
@@ -50,6 +49,7 @@ SoundManager="*res://addons/sound_manager/sound_manager.gd"
 GodotEssentialsAudio="*res://addons/2d_essentials/autoload/audio/audio.gd"
 GodotEssentialsSceneTransitioner="*res://addons/2d_essentials/autoload/scene_transitions/scene_transitioner.gd"
 TurnManager="*res://addons/godot_gameplay_systems/turn_based/./autoloads/turn_manager.gd"
+GGS="*res://addons/ggs/classes/ggs_globals.gd"
 
 [category]
 
@@ -67,7 +67,7 @@ window/stretch/aspect="expand"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/2d_essentials/plugin.cfg", "res://addons/BurstParticles2D/plugin.cfg", "res://addons/beehave/plugin.cfg", "res://addons/debug_menu/plugin.cfg", "res://addons/dialogue_manager/plugin.cfg", "res://addons/ggt-core/plugin.cfg", "res://addons/ggt-debug-shortcuts/plugin.cfg", "res://addons/godot_gameplay_systems/plugin.cfg", "res://addons/gut/plugin.cfg", "res://addons/logger/plugin.cfg", "res://addons/phantom_camera/plugin.cfg", "res://addons/sound_manager/plugin.cfg", "res://addons/tile_bit_tools/plugin.cfg")
+enabled=PackedStringArray("res://addons/2d_essentials/plugin.cfg", "res://addons/BurstParticles2D/plugin.cfg", "res://addons/beehave/plugin.cfg", "res://addons/debug_menu/plugin.cfg", "res://addons/dialogue_manager/plugin.cfg", "res://addons/ggs/plugin.cfg", "res://addons/ggt-core/plugin.cfg", "res://addons/ggt-debug-shortcuts/plugin.cfg", "res://addons/godot_gameplay_systems/plugin.cfg", "res://addons/gut/plugin.cfg", "res://addons/logger/plugin.cfg", "res://addons/phantom_camera/plugin.cfg", "res://addons/sound_manager/plugin.cfg", "res://addons/tile_bit_tools/plugin.cfg")
 
 [gui]
 
