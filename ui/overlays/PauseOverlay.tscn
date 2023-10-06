@@ -1,7 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://jyv4g54adkmo"]
+[gd_scene load_steps=2 format=3 uid="uid://jyv4g54adkmo"]
 
 [ext_resource type="Script" path="res://ui/overlays/PauseOverlay.gd" id="1_q2yda"]
-[ext_resource type="PackedScene" uid="uid://nbaodrlopo7y" path="res://ui/components/GameSettings.tscn" id="2_n78uc"]
 
 [node name="PauseOverlay" type="CenterContainer"]
 anchors_preset = 15
@@ -23,9 +22,6 @@ horizontal_alignment = 1
 [node name="SettingsContainer" type="VBoxContainer" parent="VBoxContainer3"]
 unique_name_in_owner = true
 visible = false
-layout_mode = 2
-
-[node name="GameSettings" parent="VBoxContainer3/SettingsContainer" instance=ExtResource("2_n78uc")]
 layout_mode = 2
 
 [node name="BackButton" type="Button" parent="VBoxContainer3/SettingsContainer"]

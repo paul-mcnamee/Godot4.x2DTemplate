@@ -1,0 +1,12 @@
+[gd_scene load_steps=5 format=3 uid="uid://c8uj380aoobf0"]
+
+[ext_resource type="Script" path="res://scenes/SceneManager.gd" id="1_2v3ho"]
+[ext_resource type="PackedScene" uid="uid://bbc1wd0dpm8md" path="res://scenes/boot/StartingSplashLogo.tscn" id="2_ibumx"]
+[ext_resource type="PackedScene" uid="uid://dv2y18ye8j7o0" path="res://scenes/menu/MainMenuScene.tscn" id="3_vcisk"]
+[ext_resource type="PackedScene" uid="uid://jyv4g54adkmo" path="res://ui/overlays/PauseOverlay.tscn" id="4_xv50o"]
+
+[node name="Scenes" type="Node2D"]
+script = ExtResource("1_2v3ho")
+StartingSplashLogo = ExtResource("2_ibumx")
+MainMenu = ExtResource("3_vcisk")
+PauseOverlay = ExtResource("4_xv50o")

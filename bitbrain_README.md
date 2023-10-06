@@ -87,7 +87,7 @@ Within Godot Engine, head to `scenes/boot` to access boot splash scenes. You can
 
 ## Add new translation
 
-You will find a translation file in `i18n/translation.csv`. Feel free to extend it to your needs. Godot will automatically pickup the translations if you use them inside your control nodes like `Button` or `Label`. In case you need to manually translate something in a script, call the `tr()` function. 
+You will find a translation file in `i18n/translation.csv`. Feel free to extend it to your needs. Godot will automatically pickup the translations if you use them inside your control nodes like `Button` or `Label`. In case you need to manually translate something in a script, call the `tr()` function.
 
 In case you want to add a new language, add a new column to the `translation.csv` file.
 
@@ -96,6 +96,7 @@ In case you want to add a new language, add a new column to the `translation.csv
 The game settings are managed in `UserSettings.gd`. You can change the defaults by updating `USER_SETTING_DEFAULTS`. You can also add additional properties to extend them.
 
 The `GameSettings` node and the `GameSettings.gd` script connects to the `UserSettings` by setting it/loading from it.
+    - PM: I deleted this because it was garbage
 
 ## Save game configuration
 
