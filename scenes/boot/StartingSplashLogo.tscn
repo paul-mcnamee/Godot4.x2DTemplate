@@ -1,6 +1,9 @@
-[gd_scene format=3 uid="uid://bbc1wd0dpm8md"]
+[gd_scene load_steps=2 format=3 uid="uid://bbc1wd0dpm8md"]
+
+[ext_resource type="Script" path="res://scenes/boot/StartingSplashLogo.gd" id="1_sxmtv"]
 
 [node name="Node" type="Node"]
+script = ExtResource("1_sxmtv")
 
 [node name="ColorRect2" type="ColorRect" parent="."]
 anchors_preset = 15
