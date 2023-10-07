@@ -22,6 +22,44 @@ Kenney.nl - VERY nice assets, thank you
 
 I will try to update the notes of the development sessions as I go so I can hopefully have a history of what I did and maybe I will learn from it or maybe it will just be cathartic to brain dump everything into one place for this game...
 
+### 10/7/2023
+
+1. The UI needs to be done in the manner that the shooter tutorial had with a UI scene added as an autoload singleton, that was a good method.
+      1. Some of the stuff in the ggt-core transitions is possibly pretty decent, at least it seemed like it at a glance.
+      2. It would be cool to have the loading scene if some of the load times are long for scenes and then it could have some tips or something, preferably a little minigame that you can play while loading like the chrome offline dino game, and then keep the high score of the loading mini game. yeah that would be sick.
+      3. might be useful to make the distinction if the UI is overlayed and keep a separate stack for the menu ui and the game ui
+2. menu manager
+   1. keep a stack of the menus that are loaded
+   2. back functionality
+   3. some similar stuff might be in the GGT autoload for scenes but it also might be garbage
+3. added a health bar component and adapted the 2d_essentials health component.
+   1. only needed some minor changes, changed health to float, added a max health signal and the ability to change it
+
+#### 10/7/2023 - Todo's for next time
+
+1. save game manager
+   1. still not sure if the godot game settings addon is good or not
+   2. good to setup framework for this now so that when pieces are added to the game it can be added to the save state one at a time
+      1. ideally it could just be a node made with composition that can save itself, not sure how this would work for like inventory or what not, item looks for an inventory signal and then saves it idk
+   3. I bet you can probably just JSON.stringify whole nodes... have to look if there are godot docs about serialization
+      1. apparently binary serialization is the way to go here, it is better all around but less human readable for debugging
+      2. binary serialization <https://docs.godotengine.org/en/stable/tutorials/io/binary_serialization_api.html#doc-binary-serialization-api>
+         1. some fields are not serialized with this method as mentioned at the bottom of this page: <https://docs.godotengine.org/en/stable/tutorials/io/saving_games.html>
+      3. example project: <https://github.com/godotengine/godot-demo-projects/tree/master/loading/serialization>
+         1. this also seemed like a decent approach: <https://www.gotut.net/save-and-load-system-for-godot-4/>
+   4. for game configs like sound settings, resolution, etc. use the config files
+      1. <https://docs.godotengine.org/en/stable/classes/class_configfile.html#class-configfile>
+2. event/message bus
+   1. <https://www.youtube.com/watch?v=vbw1ncvSUYg>, <https://www.youtube.com/watch?v=S6PbC4Vqim4>
+   2. this is similar to the globals autoload in some ways but it would be nice to handle all of the signals in one place
+3. start adding stuff to the game
+   1. player
+      1. inventory
+      2. equipment
+      3. health
+   2. enemies
+   3. loot
+
 ### 10/5/2023
 
 1. reviewed every addon and removed the redundant or unnecessary components for this game from being autoloaded.
