@@ -35,21 +35,32 @@ I will try to update the notes of the development sessions as I go so I can hope
          1. seemed like it was just saving a few properties like rotation, position, color, etc. I think this is probably not great
       2. I think there are other options for saving game items, seems like the GGS stuff is a bit better but it uses resources which can allow arbitrary code execution if not used properly, not sure if that was fixed in godot 4 or not though.
       3. the godot game template has some singletons which seem ok, I ran into issues when attempting to load the dialogue manager though because they checked if a scene had a generic "start" method name which is fairly common so it sort of made me doubt if the rest of the stuff is decent or not, need to look into the ggt-core autoloads
-   3. The UI needs to be done in the manner that the shooter tutorial had with a UI scene added as an autoload singleton, that was a good method.
-      1. Some of the stuff in the transitions is pretty nice, it would be cool to have the loading scene if some of the load times are long for scenes and then it could have some tips or something, preferably a little minigame that you can play while loading like the chrome offline dino game, and then keep the high score of the loading mini game. yeah that would be sick.
 
-#### Todo's for next time
+#### 10/5/2023 - Todo's for next time
 
-1. menu manager
+1. The UI needs to be done in the manner that the shooter tutorial had with a UI scene added as an autoload singleton, that was a good method.
+      1. Some of the stuff in the ggt-core transitions is possibly pretty decent, at least it seemed like it at a glance. It would be cool to have the loading scene if some of the load times are long for scenes and then it could have some tips or something, preferably a little minigame that you can play while loading like the chrome offline dino game, and then keep the high score of the loading mini game. yeah that would be sick.
+      2. might be useful to make the distinction if the UI is overlayed and keep a separate stack for the menu ui and the game ui
+2. menu manager
    1. keep a stack of the menus that are loaded
    2. back functionality
    3. some similar stuff might be in the GGT autoload for scenes but it also might be garbage
-2. save game manager
+3. save game manager
    1. still not sure if the godot game settings addon is good or not
    2. good to setup framework for this now so that when pieces are added to the game it can be added to the save state one at a time
       1. ideally it could just be a node made with composition that can save itself, not sure how this would work for like inventory or what not, item looks for an inventory signal and then saves it idk
    3. I bet you can probably just JSON.stringify whole nodes... have to look if there are godot docs about serialization
-3. start adding stuff to the game
+      1. apparently binary serialization is the way to go here, it is better all around but less human readable for debugging
+      2. binary serialization <https://docs.godotengine.org/en/stable/tutorials/io/binary_serialization_api.html#doc-binary-serialization-api>
+         1. some fields are not serialized with this method as mentioned at the bottom of this page: <https://docs.godotengine.org/en/stable/tutorials/io/saving_games.html>
+      3. example project: <https://github.com/godotengine/godot-demo-projects/tree/master/loading/serialization>
+         1. this also seemed like a decent approach: <https://www.gotut.net/save-and-load-system-for-godot-4/>
+   4. for game configs like sound settings, resolution, etc. use the config files
+      1. <https://docs.godotengine.org/en/stable/classes/class_configfile.html#class-configfile>
+4. event/message bus
+   1. <https://www.youtube.com/watch?v=vbw1ncvSUYg>, <https://www.youtube.com/watch?v=S6PbC4Vqim4>
+   2. this is similar to the globals autoload in some ways but it would be nice to handle all of the signals in one place
+5. start adding stuff to the game
    1. player
       1. inventory
       2. equipment
@@ -127,7 +138,7 @@ There are some console errors and I still need to look through all of the addons
 I want to add this addon, but there were some files that were conflicting so I will need to manually merge them in order to continue:
 <https://github.com/PunchablePlushie/godot-game-settings/wiki/Getting-Started>
 
-#### Todo's for next time
+#### 10/4/2023 - Todo's for next time
 
 1. Look at the features to see if it is necessary, and then resolve any conflicts for this addon:
    1. <https://github.com/PunchablePlushie/godot-game-settings>
