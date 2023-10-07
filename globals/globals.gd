@@ -1,10 +1,6 @@
 extends Node
 
-signal health_changed
-
-var laser_amount = 20
-var grenade_amount = 2
-var health = 60:
-	set(value):
-		health = value
-		health_changed.emit()
+# TODO: should include defaults here for a nice color palatte so it is consistent.
+var colors: Dictionary = {
+	dark_green = Color("#3D5220")
+}
