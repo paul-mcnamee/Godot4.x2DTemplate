@@ -9,6 +9,8 @@ signal game_exited
 @onready var menu_container := %MenuContainer
 @onready var back_button := %BackButton
 
+# TODO: I don't even think this pauses the game...
+
 func _ready() -> void:
 	resume_button.pressed.connect(_resume)
 	settings_button.pressed.connect(_settings)
