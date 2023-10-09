@@ -100,11 +100,11 @@ I will try to update the notes of the development sessions as I go so I can hope
          3. dodge?
 7. enemies
 8. items
-9.  npc
+9. npc
    1. vendor
    2. quest giver
 10. quests
-   1. C:\Projects\Games\Unity\creator kit rpg\Assets\Creator Kit - RPG\Scripts\Gameplay\Quest.cs
+    1. C:\Projects\Games\Unity\creator kit rpg\Assets\Creator Kit - RPG\Scripts\Gameplay\Quest.cs
 11. world
     1. outside
     2. villages
