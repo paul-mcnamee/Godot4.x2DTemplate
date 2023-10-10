@@ -1,4 +1,3 @@
-class_name MenuManager
 extends MarginContainer
 
 signal menu_opened

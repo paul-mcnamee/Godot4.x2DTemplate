@@ -26,9 +26,16 @@ I will try to update the notes of the development sessions as I go so I can hope
 
 ### 10/9/2023
 
-1. fixed git credentials in wsl so I can just use that for terminal, very nice, no more trash powershell
-2. toasts notifications
-   1. add to the main ui, should be on the topmost visible layer at the time of the notification maybe? or maybe simpler approach would just be to specify which ui element you want to add it to.
+1. <https://github.com/rares45/godot-toasts/tree/main>
+   1. more time wasted, this doesn't work for godot 4 and also it's setting a bunch of hard coded properties that would be hard to actually adapt and use in more ways than just whatever is there already.
+2. add to the main ui, should be on the topmost visible layer at the time of the notification maybe? or maybe simpler approach would just be to specify which ui element you want to add it to.
+   1. timer to delay the start
+   2. timer to delay the duration of the timer
+   3. different ease animations can be achieved with tweens
+   4. tween.chain for multiple notifications in a row
+3. should have a queue of toasts
+    1. play the toasts from the queue when one gets put into it until it is empty
+    2. simple as that
 
 #### 10/9/2023 - Todo's for next time
 
