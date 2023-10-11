@@ -42,5 +42,6 @@ func open(new_menu: Node):
 	self.add_child(new_menu)
 	menu_opened.emit()
 
+
 func _ready():
 	pass

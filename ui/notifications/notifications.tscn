@@ -1,0 +1,38 @@
+[gd_scene load_steps=3 format=3 uid="uid://c1yg7kh3y1hdt"]
+
+[ext_resource type="PackedScene" uid="uid://bkqd2wxnauxbp" path="res://ui/notifications/toast.tscn" id="1_n2t7k"]
+[ext_resource type="Script" path="res://ui/notifications/notifications.gd" id="1_w6vxy"]
+
+[node name="NotificationsContainer" type="Control" node_paths=PackedStringArray("toasts_container", "full_screen_container", "center_screen_container")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_w6vxy")
+toasts_container = NodePath("ToastContainer")
+full_screen_container = NodePath("FullScreenContainer")
+center_screen_container = NodePath("CenteredContainer")
+toast_notification = ExtResource("1_n2t7k")
+
+[node name="ToastContainer" type="MarginContainer" parent="."]
+layout_mode = 0
+offset_left = 1226.0
+offset_top = 872.0
+offset_right = 1920.0
+offset_bottom = 1080.0
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="FullScreenContainer" type="CenterContainer" parent="."]
+layout_mode = 2
+offset_right = 1920.0
+offset_bottom = 1080.0
+
+[node name="CenteredContainer" type="CenterContainer" parent="."]
+layout_mode = 2
+offset_right = 1920.0
+offset_bottom = 1080.0
