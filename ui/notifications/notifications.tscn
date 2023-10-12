@@ -1,38 +1,93 @@
-[gd_scene load_steps=3 format=3 uid="uid://c1yg7kh3y1hdt"]
+[gd_scene load_steps=6 format=3 uid="uid://c1yg7kh3y1hdt"]
 
 [ext_resource type="PackedScene" uid="uid://bkqd2wxnauxbp" path="res://ui/notifications/toast.tscn" id="1_n2t7k"]
 [ext_resource type="Script" path="res://ui/notifications/notifications.gd" id="1_w6vxy"]
+[ext_resource type="Script" path="res://ui/notifications/toast_scroll_container.gd" id="3_iac1j"]
+[ext_resource type="Texture2D" uid="uid://bc1o266ummoeb" path="res://ui/assets/images/grey_arrowUpGrey.png" id="3_rss4g"]
+[ext_resource type="Texture2D" uid="uid://du3o4d7ln6k2e" path="res://ui/assets/images/grey_arrowUpWhite.png" id="4_wcnei"]
 
 [node name="NotificationsContainer" type="Control" node_paths=PackedStringArray("toasts_container", "full_screen_container", "center_screen_container")]
+top_level = true
+y_sort_enabled = true
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 script = ExtResource("1_w6vxy")
-toasts_container = NodePath("ToastContainer")
+toasts_container = NodePath("ScrollContainer/ToastContainer")
 full_screen_container = NodePath("FullScreenContainer")
 center_screen_container = NodePath("CenteredContainer")
 toast_notification = ExtResource("1_n2t7k")
+metadata/_edit_lock_ = true
 
-[node name="ToastContainer" type="MarginContainer" parent="."]
-layout_mode = 0
-offset_left = 1226.0
-offset_top = 872.0
-offset_right = 1920.0
-offset_bottom = 1080.0
-theme_override_constants/margin_left = 20
-theme_override_constants/margin_top = 20
-theme_override_constants/margin_right = 20
-theme_override_constants/margin_bottom = 20
-
-[node name="FullScreenContainer" type="CenterContainer" parent="."]
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+clip_contents = false
+custom_minimum_size = Vector2(0, 60)
 layout_mode = 2
-offset_right = 1920.0
-offset_bottom = 1080.0
+anchor_left = 0.711
+anchor_right = 0.99
+anchor_bottom = 1.0
+offset_left = 4.88
+offset_right = 9.19983
+mouse_filter = 0
+horizontal_scroll_mode = 3
+vertical_scroll_mode = 3
+script = ExtResource("3_iac1j")
+
+[node name="ToastContainer" type="VBoxContainer" parent="ScrollContainer"]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 8
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+anchor_left = 0.711
+anchor_top = 0.991
+anchor_right = 0.99
+anchor_bottom = 1.0
+offset_left = -0.119995
+offset_top = -0.280029
+offset_right = -0.800171
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="TextureButton" type="TextureButton" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+texture_normal = ExtResource("3_rss4g")
+texture_pressed = ExtResource("4_wcnei")
+texture_hover = ExtResource("4_wcnei")
 
 [node name="CenteredContainer" type="CenterContainer" parent="."]
-layout_mode = 2
-offset_right = 1920.0
-offset_bottom = 1080.0
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -960.0
+offset_top = -540.0
+offset_right = 960.0
+offset_bottom = 540.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+metadata/_edit_lock_ = true
+
+[node name="FullScreenContainer" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+metadata/_edit_lock_ = true
+
+[connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]
+[connection signal="pressed" from="MarginContainer/TextureButton" to="." method="_on_texture_button_pressed"]

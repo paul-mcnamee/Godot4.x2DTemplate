@@ -5,7 +5,7 @@ class_name BaseNotification
 # const DISPLAY_DURATION_SEC: float = 2.0
 # const FADE_OUT_DELAY_SEC: float = 1.0
 
-@export var animation: AnimationPlayer # this should play automatically
+# @export var animation: AnimationPlayer # this should play automatically
 
 func _ready() -> void:
 

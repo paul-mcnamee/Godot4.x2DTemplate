@@ -1,96 +1,18 @@
-[gd_scene load_steps=7 format=3 uid="uid://bkqd2wxnauxbp"]
+[gd_scene load_steps=4 format=3 uid="uid://bkqd2wxnauxbp"]
 
 [ext_resource type="Script" path="res://ui/notifications/toast.gd" id="1_iryqh"]
 [ext_resource type="Texture2D" uid="uid://c335ox8h5y2x" path="res://ui/assets/images/blue_boxCross.png" id="1_xga4m"]
 [ext_resource type="Texture2D" uid="uid://dx0g05y6syfer" path="res://ui/assets/images/blue_button12.png" id="2_ft1r6"]
 
-[sub_resource type="Animation" id="Animation_y4dyu"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0, 0)]
-}
-
-[sub_resource type="Animation" id="Animation_cp8gg"]
-resource_name = "fade_in_and_out"
-length = 6.0
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1, 5, 6),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
-}
-tracks/1/type = "method"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(6.1),
-"transitions": PackedFloat32Array(1),
-"values": [{
-"args": [],
-"method": &"queue_free"
-}]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath(".:position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 1, 5, 6),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [Vector2(0, 5000), Vector2(0, 0), Vector2(0, 0), Vector2(0, 5000)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_vxscw"]
-_data = {
-"RESET": SubResource("Animation_y4dyu"),
-"fade_in_and_out": SubResource("Animation_cp8gg")
-}
-
 [node name="Toast" type="MarginContainer" node_paths=PackedStringArray("animation")]
-modulate = Color(1, 1, 1, 0)
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_right = 1920.0
-offset_bottom = 1080.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 script = ExtResource("1_iryqh")
-animation = NodePath("AnimationPlayer")
+animation = NodePath("")
 
 [node name="NinePatchRect" type="NinePatchRect" parent="."]
 layout_mode = 2
@@ -117,7 +39,6 @@ sgdrth srth srth srth srht "
 autowrap_mode = 3
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
-visible = false
 layout_mode = 2
 theme_override_constants/margin_left = 0
 theme_override_constants/margin_top = 20
@@ -133,8 +54,4 @@ icon = ExtResource("1_xga4m")
 flat = true
 icon_alignment = 2
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-autoplay = "fade_in_and_out"
-libraries = {
-"": SubResource("AnimationLibrary_vxscw")
-}
+[connection signal="pressed" from="MarginContainer/ToastNotificationButton" to="." method="_on_toast_notification_button_pressed"]
