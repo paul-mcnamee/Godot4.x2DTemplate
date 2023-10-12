@@ -1,10 +1,10 @@
 [gd_scene load_steps=6 format=3 uid="uid://c1yg7kh3y1hdt"]
 
-[ext_resource type="PackedScene" uid="uid://bkqd2wxnauxbp" path="res://ui/notifications/toast.tscn" id="1_n2t7k"]
-[ext_resource type="Script" path="res://ui/notifications/notifications.gd" id="1_w6vxy"]
-[ext_resource type="Script" path="res://ui/notifications/toast_scroll_container.gd" id="3_iac1j"]
-[ext_resource type="Texture2D" uid="uid://bc1o266ummoeb" path="res://ui/assets/images/grey_arrowUpGrey.png" id="3_rss4g"]
-[ext_resource type="Texture2D" uid="uid://du3o4d7ln6k2e" path="res://ui/assets/images/grey_arrowUpWhite.png" id="4_wcnei"]
+[ext_resource type="Script" path="res://ui/notifications/notifications.gd" id="1_js7tf"]
+[ext_resource type="PackedScene" uid="uid://bkqd2wxnauxbp" path="res://ui/notifications/toast.tscn" id="2_ts6m1"]
+[ext_resource type="Script" path="res://ui/notifications/toast_scroll_container.gd" id="3_eaif8"]
+[ext_resource type="Texture2D" uid="uid://bc1o266ummoeb" path="res://ui/assets/images/grey_arrowUpGrey.png" id="4_gbib1"]
+[ext_resource type="Texture2D" uid="uid://du3o4d7ln6k2e" path="res://ui/assets/images/grey_arrowUpWhite.png" id="5_l7wdd"]
 
 [node name="NotificationsContainer" type="Control" node_paths=PackedStringArray("toasts_container", "full_screen_container", "center_screen_container")]
 top_level = true
@@ -16,11 +16,11 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-script = ExtResource("1_w6vxy")
-toasts_container = NodePath("ScrollContainer/ToastContainer")
+script = ExtResource("1_js7tf")
+toasts_container = NodePath("ScrollContainer/ToastsContainer")
 full_screen_container = NodePath("FullScreenContainer")
-center_screen_container = NodePath("CenteredContainer")
-toast_notification = ExtResource("1_n2t7k")
+center_screen_container = NodePath("CenterScreenContainer")
+toast_notification = ExtResource("2_ts6m1")
 metadata/_edit_lock_ = true
 
 [node name="ScrollContainer" type="ScrollContainer" parent="."]
@@ -35,9 +35,9 @@ offset_right = 9.19983
 mouse_filter = 0
 horizontal_scroll_mode = 3
 vertical_scroll_mode = 3
-script = ExtResource("3_iac1j")
+script = ExtResource("3_eaif8")
 
-[node name="ToastContainer" type="VBoxContainer" parent="ScrollContainer"]
+[node name="ToastsContainer" type="VBoxContainer" parent="ScrollContainer"]
 custom_minimum_size = Vector2(0, 60)
 layout_mode = 2
 size_flags_horizontal = 3
@@ -59,11 +59,11 @@ grow_vertical = 0
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 8
-texture_normal = ExtResource("3_rss4g")
-texture_pressed = ExtResource("4_wcnei")
-texture_hover = ExtResource("4_wcnei")
+texture_normal = ExtResource("4_gbib1")
+texture_pressed = ExtResource("5_l7wdd")
+texture_hover = ExtResource("5_l7wdd")
 
-[node name="CenteredContainer" type="CenterContainer" parent="."]
+[node name="CenterScreenContainer" type="CenterContainer" parent="."]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5

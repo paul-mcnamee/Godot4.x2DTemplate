@@ -33,15 +33,18 @@ I will try to update the notes of the development sessions as I go so I can hope
    4. made toasts ui buttons work for dismissing notifications and for hiding and showing the ui
       1. definitely need better assets, the kenney ones are pretty small
    5. currently I think it is good enough, animations are necessary for it to look really good but I don't really think I should be spending time on that since I might not even use it.
+2. cleaned up some more unused files from the templates
+3. re-organized the scenes folder to move ui stuff into the ui folder for boot, menu, settings, and transitions
 
 #### 10/12/2023 - Todo's for next time
 
-1. set up some kenney tile assets with the tile addon
+1. look into the game global stuff from ggt, had multithreaded loading which seems useful
+2. set up some kenney tile assets with the tile addon
    1. should probably put this stuff in an examples folder so it is easy to delete for later projects
-2. unit tests
+3. unit tests
    1. test early and test often.
    2. honestly think this might be less of a factor for godot since the individual scenes are run so easily so manual testing might be quicker and easier but I still think it is good to go through the practice of writing tests, I find a lot of bugs when I think through all of the scenarios and type out all of the tests.
-3. save game manager
+4. save game manager
    1. still not sure if the godot game settings addon is good or not
    2. good to setup framework for this now so that when pieces are added to the game it can be added to the save state one at a time
       1. ideally it could just be a node made with composition that can save itself, not sure how this would work for like inventory or what not, item looks for an inventory signal and then saves it idk
@@ -53,7 +56,7 @@ I will try to update the notes of the development sessions as I go so I can hope
          1. this also seemed like a decent approach: <https://www.gotut.net/save-and-load-system-for-godot-4/>
    4. for game configs like sound settings, resolution, etc. use the config files
       1. <https://docs.godotengine.org/en/stable/classes/class_configfile.html#class-configfile>
-4. combat system
+5. combat system
    1. would like to use the system similar to the shooter tutorial example using layers and adapt it to use hitbox and hurtbox instead since that is better suited for composition
       1. hitbox
          1. check if collision happens
@@ -71,7 +74,7 @@ I will try to update the notes of the development sessions as I go so I can hope
       4. Day/Night cycle
          1. yoink this - C:\Projects\Games\Unity\HerpFarmer\Assets\Scripts\GameControl\GameTime.cs
             1. constants too - C:\Projects\Games\Unity\HerpFarmer\Assets\Scripts\Utils\Constants.cs
-5. player
+6. player
    1. inventory - C:\Projects\Games\Unity\HerpFarmer\Assets\Scripts\Game\Item\Inventory.cs
       1. inventory items
          1. dict w/ hash of item + quantity
@@ -97,14 +100,14 @@ I will try to update the notes of the development sessions as I go so I can hope
          1. attack speed
          2. move speed
          3. dodge?
-6. enemies
-7. items
-8. npc
-9. vendor
-10. quest giver
-11. quests
+7. enemies
+8. items
+9. npc
+10. vendor
+11. quest giver
+12. quests
     1. C:\Projects\Games\Unity\creator kit rpg\Assets\Creator Kit - RPG\Scripts\Gameplay\Quest.cs
-12. world
+13. world
     1. outside
     2. villages
     3. dungeons

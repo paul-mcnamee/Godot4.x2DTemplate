@@ -5,6 +5,7 @@ extends Control
 @export var center_screen_container: Container
 
 @export var toast_notification: PackedScene
+@export var center_screen_notification: PackedScene
 
 func _ready():
 	for i in range(7):
@@ -17,6 +18,8 @@ func _ready():
 func create_toast():
 		toasts_container.add_child(toast_notification.instantiate())
 
+func create_center_screen_notification():
+		center_screen_container.add_child(center_screen_notification.instantiate())
 
 # show/hide the toasts container
 func _on_texture_button_pressed() -> void:
