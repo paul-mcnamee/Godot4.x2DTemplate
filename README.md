@@ -157,24 +157,16 @@ for this game...
          1. this also seemed like a decent approach: <https://www.gotut.net/save-and-load-system-for-godot-4/>
    4. for game configs like sound settings, resolution, etc. use the config files
       1. <https://docs.godotengine.org/en/stable/classes/class_configfile.html#class-configfile>
-4. combat system
-   1. would like to use the system similar to the shooter tutorial example using layers and adapt it to use hitbox and hurtbox instead since that is better suited for composition
-      1. hitbox
-         1. check if collision happens
-         2. check what layer it is on, who it belongs to
-         3. do damage by calling the associated hurtbox methods
-      2. hurtbox
-         1. receive damage
-   2. yoink stuff from old projects and adapt to godot
-      1. probably should just look at interfaces to try to keep it simple and cut down on time spent just perusing old code
-      2. yoink from tower defense game into herp farmer - <https://github.com/paul-mcnamee/HerpFarmer/commit/d5af028c164589644e59122c3feb017f1a2d0e57>
-         1. the only thing that seems remotely useful is the constants for colors and time of day stuff
-            1. C:\Projects\Games\Unity\HerpFarmer\Assets\Scripts\Utils\Constants.cs
-            2. <https://flatuicolors.com/palette/defo>
-      3. constants - C:\Projects\Games\Unity\HerpFarmer\Assets\Scripts\Utils\Constants.cs
-      4. Day/Night cycle
-         1. yoink this - C:\Projects\Games\Unity\HerpFarmer\Assets\Scripts\GameControl\GameTime.cs
-            1. constants too - C:\Projects\Games\Unity\HerpFarmer\Assets\Scripts\Utils\Constants.cs
+4. yoink stuff from old projects and adapt to godot
+   1. probably should just look at interfaces to try to keep it simple and cut down on time spent just perusing old code
+   2. yoink from tower defense game into herp farmer - <https://github.com/paul-mcnamee/HerpFarmer/commit/d5af028c164589644e59122c3feb017f1a2d0e57>
+      1. the only thing that seems remotely useful is the constants for colors and time of day stuff
+         1. C:\Projects\Games\Unity\HerpFarmer\Assets\Scripts\Utils\Constants.cs
+         2. <https://flatuicolors.com/palette/defo>
+   3. constants - C:\Projects\Games\Unity\HerpFarmer\Assets\Scripts\Utils\Constants.cs
+   4. Day/Night cycle
+      1. yoink this - C:\Projects\Games\Unity\HerpFarmer\Assets\Scripts\GameControl\GameTime.cs
+         1. constants too - C:\Projects\Games\Unity\HerpFarmer\Assets\Scripts\Utils\Constants.cs
 5. player
    1. inventory - C:\Projects\Games\Unity\HerpFarmer\Assets\Scripts\Game\Item\Inventory.cs
       1. inventory items
@@ -212,7 +204,6 @@ for this game...
     1. outside
     2. villages
     3. dungeons
-
 
 ### 10/9/2023
 
