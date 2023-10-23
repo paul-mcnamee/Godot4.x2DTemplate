@@ -133,6 +133,86 @@ for this game...
       2. hitbox
          1. get the damage component from the owner onload
          2. damage call happens in hurtbox so not much to do here other than the collision, maybe just emit a signal
+      3. damage
+         1. basically just a float value for now
+      4. armor
+         1. basically just a float value for now
+
+#### 10/23/2023 - Todo's for next time
+
+1. set up some kenney tile assets with the tile addon
+   1. should probably put this stuff in an examples folder so it is easy to delete for later projects
+2. unit tests
+   1. test early and test often.
+   2. honestly think this might be less of a factor for godot since the individual scenes are run so easily so manual testing might be quicker and easier but I still think it is good to go through the practice of writing tests, I find a lot of bugs when I think through all of the scenarios and type out all of the tests.
+3. save game manager
+   1. still not sure if the godot game settings addon is good or not
+   2. good to setup framework for this now so that when pieces are added to the game it can be added to the save state one at a time
+      1. ideally it could just be a node made with composition that can save itself, not sure how this would work for like inventory or what not, item looks for an inventory signal and then saves it idk
+   3. I bet you can probably just JSON.stringify whole nodes... have to look if there are godot docs about serialization
+      1. apparently binary serialization is the way to go here, it is better all around but less human readable for debugging
+      2. binary serialization <https://docs.godotengine.org/en/stable/tutorials/io/binary_serialization_api.html#doc-binary-serialization-api>
+         1. some fields are not serialized with this method as mentioned at the bottom of this page: <https://docs.godotengine.org/en/stable/tutorials/io/saving_games.html>
+      3. example project: <https://github.com/godotengine/godot-demo-projects/tree/master/loading/serialization>
+         1. this also seemed like a decent approach: <https://www.gotut.net/save-and-load-system-for-godot-4/>
+   4. for game configs like sound settings, resolution, etc. use the config files
+      1. <https://docs.godotengine.org/en/stable/classes/class_configfile.html#class-configfile>
+4. combat system
+   1. would like to use the system similar to the shooter tutorial example using layers and adapt it to use hitbox and hurtbox instead since that is better suited for composition
+      1. hitbox
+         1. check if collision happens
+         2. check what layer it is on, who it belongs to
+         3. do damage by calling the associated hurtbox methods
+      2. hurtbox
+         1. receive damage
+   2. yoink stuff from old projects and adapt to godot
+      1. probably should just look at interfaces to try to keep it simple and cut down on time spent just perusing old code
+      2. yoink from tower defense game into herp farmer - <https://github.com/paul-mcnamee/HerpFarmer/commit/d5af028c164589644e59122c3feb017f1a2d0e57>
+         1. the only thing that seems remotely useful is the constants for colors and time of day stuff
+            1. C:\Projects\Games\Unity\HerpFarmer\Assets\Scripts\Utils\Constants.cs
+            2. <https://flatuicolors.com/palette/defo>
+      3. constants - C:\Projects\Games\Unity\HerpFarmer\Assets\Scripts\Utils\Constants.cs
+      4. Day/Night cycle
+         1. yoink this - C:\Projects\Games\Unity\HerpFarmer\Assets\Scripts\GameControl\GameTime.cs
+            1. constants too - C:\Projects\Games\Unity\HerpFarmer\Assets\Scripts\Utils\Constants.cs
+5. player
+   1. inventory - C:\Projects\Games\Unity\HerpFarmer\Assets\Scripts\Game\Item\Inventory.cs
+      1. inventory items
+         1. dict w/ hash of item + quantity
+      2. inventory summary - probably implemented in the UI
+         1. loop through items
+            1. sort by weight, type, value
+   2. equipment - C:\Projects\Games\Unity\HerpFarmer\Assets\Scripts\Game\Item\Equipment\Equipment.cs
+      1. godot groups would probably be useful for some of this
+         1. namely artifacts, charms, etc. when applying stat effects it would be simpler if they were just in groups
+         2. alternatively you could recalculate stats when a single item is (un)equipped.
+   3. health (somewhat done but needs adapted to stats once those are added)
+   4. stats - C:\Projects\Games\Unity\HerpFarmer\Assets\Scripts\Game\Stat\Stat.cs
+      1. stats will be on equipment so the calculations need to include any equipped items
+      2. str
+         1. health
+         2. attack power
+         3. block chance?
+      3. int
+         1. mana
+         2. spell power
+         3. crit chance?
+      4. dex
+         1. attack speed
+         2. move speed
+         3. dodge?
+6. enemies
+7. items
+8. npc
+   1. vendor
+   2. quest giver
+9. quests
+    1. C:\Projects\Games\Unity\creator kit rpg\Assets\Creator Kit - RPG\Scripts\Gameplay\Quest.cs
+10. world
+    1. outside
+    2. villages
+    3. dungeons
+
 
 ### 10/9/2023
 
