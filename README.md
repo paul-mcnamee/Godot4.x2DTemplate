@@ -123,6 +123,8 @@ for this game...
 
 ### 10/23/2023
 
+1. Look into hitbox and hurtbox in the godot 4 tutorial for the shooter_tutorial game. Added primitives for the hit and hurt boxes and added a player node. -- This is the tutorial that was originally followed for the layers which were added: <https://github.com/clear-code-projects/UltimateGodotIntro2D>
+   1. I think having separate boxes apart from the player collision is good for adjusting them if needed in the future. Should look at the heartbeast implementation or something similar if there is something already done. Did not see many results on github for searching for hitbox and gdscript though.
 
 ### 10/9/2023
 

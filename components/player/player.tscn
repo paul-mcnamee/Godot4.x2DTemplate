@@ -1,12 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://4kl6aikheidt"]
+[gd_scene load_steps=2 format=3 uid="uid://4kl6aikheidt"]
 
-[ext_resource type="PackedScene" uid="uid://c365dtsta0hs0" path="res://components/combat/hitbox.tscn" id="1_mfdqd"]
 [ext_resource type="PackedScene" uid="uid://dw11ppedil3vf" path="res://components/combat/hurtbox.tscn" id="2_5wfpo"]
 
 [node name="Player" type="CharacterBody2D"]
 collision_mask = 63
-
-[node name="Hitbox" parent="." instance=ExtResource("1_mfdqd")]
 
 [node name="Hurtbox" parent="." instance=ExtResource("2_5wfpo")]
 
