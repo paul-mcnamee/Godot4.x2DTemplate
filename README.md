@@ -124,7 +124,8 @@ for this game...
 ### 10/23/2023
 
 1. Look into hitbox and hurtbox in the godot 4 tutorial for the shooter_tutorial game. Added primitives for the hit and hurt boxes and added a player node. -- This is the tutorial that was originally followed for the layers which were added: <https://github.com/clear-code-projects/UltimateGodotIntro2D>
-   1. I think having separate boxes apart from the player collision is good for adjusting them if needed in the future. Should look at the heartbeast implementation or something similar if there is something already done. Did not see many results on github for searching for hitbox and gdscript though.
+   1. I think having separate boxes apart from the player collision is good for adjusting them if needed in the future. Should look at the gdquest implementation or something similar if there is something already done. Did not see many results on github for searching for hitbox and gdscript though.
+   2. started implementing a basic and hopefully adaptable solution where the hitbox and hurtbox nodes can be added to each component. Since we're not using sprites it should be easier to implement than some of the other pixel art solutions which require specific hitboxes at each frame in the animation or whatever. 
 
 ### 10/9/2023
 
