@@ -1,8 +1,7 @@
-extends Area2D
-class_name Hitbox
+extends Node2D
+class_name Defense
 
-@onready var damager: Damager = owner.get_node("%Damager")
-
+var amount: float = 0.0
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

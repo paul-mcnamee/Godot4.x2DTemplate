@@ -125,7 +125,14 @@ for this game...
 
 1. Look into hitbox and hurtbox in the godot 4 tutorial for the shooter_tutorial game. Added primitives for the hit and hurt boxes and added a player node. -- This is the tutorial that was originally followed for the layers which were added: <https://github.com/clear-code-projects/UltimateGodotIntro2D>
    1. I think having separate boxes apart from the player collision is good for adjusting them if needed in the future. Should look at the gdquest implementation or something similar if there is something already done. Did not see many results on github for searching for hitbox and gdscript though.
-   2. started implementing a basic and hopefully adaptable solution where the hitbox and hurtbox nodes can be added to each component. Since we're not using sprites it should be easier to implement than some of the other pixel art solutions which require specific hitboxes at each frame in the animation or whatever. 
+   2. started implementing a basic and hopefully adaptable solution where the hitbox and hurtbox nodes can be added to each component. Since we're not using sprites it should be easier to implement than some of the other pixel art solutions which require specific hitboxes at each frame in the animation or whatever.
+      1. hurtbox
+         1. area entered and intruder area owner is a hitbox
+            2. find if there is a calculate damage method
+            3. call the calculate damage method and pass the owner of the hurtbox 
+      2. hitbox
+         1. get the damage component from the owner onload
+         2. damage call happens in hurtbox so not much to do here other than the collision, maybe just emit a signal
 
 ### 10/9/2023
 
