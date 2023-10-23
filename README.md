@@ -118,7 +118,11 @@ Initial Templates were used from [crystal-bit](https://github.com/crystal-bit/go
 
 ## Development Notes
 
-I will try to update the notes of the development sessions as I go so I can hopefully have a history of what I did and maybe I will learn from it or maybe it will just be cathartic to brain dump everything into one place for this game...
+I will try to update the notes of the development sessions as I go so I can hopefully have a history of what I did and maybe I will learn from it or maybe it will just be cathartic to brain dump everything into one place  
+for this game...
+
+### 10/23/2023
+
 
 ### 10/9/2023
 

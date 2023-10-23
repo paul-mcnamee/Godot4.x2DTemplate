@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://c365dtsta0hs0"]
+
+[ext_resource type="Script" path="res://components/combat/hitbox.gd" id="1_d5lfd"]
+
+[node name="Hitbox" type="Area2D"]
+collision_layer = 0
+collision_mask = 0
+script = ExtResource("1_d5lfd")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(136, -38, 136, -38, -22, -88, -98, 37, 5, 141, 106, 14)

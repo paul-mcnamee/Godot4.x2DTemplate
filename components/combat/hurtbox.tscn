@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://dw11ppedil3vf"]
+
+[ext_resource type="Script" path="res://components/combat/hurtbox.gd" id="1_4h0es"]
+
+[node name="Hurtbox" type="Area2D"]
+collision_layer = 0
+collision_mask = 0
+script = ExtResource("1_4h0es")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-50, -27, -63, 48, 79, 122, 134, -34, 24, -80)
