@@ -205,11 +205,194 @@ for this game...
     2. villages
     3. dungeons
 
+### 10/12/2023
+
+1. continue working on the notifications ui
+   1. changed the toasts container to be a scroll container
+   2. changed the structure of the containers so they are on top for the notifications ui
+   3. made container structure for notifications more flat so the size could be changed
+   4. made toasts ui buttons work for dismissing notifications and for hiding and showing the ui
+      1. definitely need better assets, the kenney ones are pretty small
+   5. currently I think it is good enough, animations are necessary for it to look really good but I don't really think I should be spending time on that since I might not even use it.
+2. cleaned up some more unused files from the templates
+3. re-organized the scenes folder to move ui stuff into the ui folder for boot, menu, settings, and transitions
+
+#### 10/12/2023 - Todo's for next time
+
+1. look into the game global stuff from ggt, had multithreaded loading which seems useful
+2. set up some kenney tile assets with the tile addon
+   1. should probably put this stuff in an examples folder so it is easy to delete for later projects
+3. unit tests
+   1. test early and test often.
+   2. honestly think this might be less of a factor for godot since the individual scenes are run so easily so manual testing might be quicker and easier but I still think it is good to go through the practice of writing tests, I find a lot of bugs when I think through all of the scenarios and type out all of the tests.
+4. save game manager
+   1. still not sure if the godot game settings addon is good or not
+   2. good to setup framework for this now so that when pieces are added to the game it can be added to the save state one at a time
+      1. ideally it could just be a node made with composition that can save itself, not sure how this would work for like inventory or what not, item looks for an inventory signal and then saves it idk
+   3. I bet you can probably just JSON.stringify whole nodes... have to look if there are godot docs about serialization
+      1. apparently binary serialization is the way to go here, it is better all around but less human readable for debugging
+      2. binary serialization <https://docs.godotengine.org/en/stable/tutorials/io/binary_serialization_api.html#doc-binary-serialization-api>
+         1. some fields are not serialized with this method as mentioned at the bottom of this page: <https://docs.godotengine.org/en/stable/tutorials/io/saving_games.html>
+      3. example project: <https://github.com/godotengine/godot-demo-projects/tree/master/loading/serialization>
+         1. this also seemed like a decent approach: <https://www.gotut.net/save-and-load-system-for-godot-4/>
+   4. for game configs like sound settings, resolution, etc. use the config files
+      1. <https://docs.godotengine.org/en/stable/classes/class_configfile.html#class-configfile>
+5. combat system
+   1. would like to use the system similar to the shooter tutorial example using layers and adapt it to use hitbox and hurtbox instead since that is better suited for composition
+      1. hitbox
+         1. check if collision happens
+         2. check what layer it is on, who it belongs to
+         3. do damage by calling the associated hurtbox methods
+      2. hurtbox
+         1. receive damage
+   2. yoink stuff from old projects and adapt to godot
+      1. probably should just look at interfaces to try to keep it simple and cut down on time spent just perusing old code
+      2. yoink from tower defense game into herp farmer - <https://github.com/paul-mcnamee/HerpFarmer/commit/d5af028c164589644e59122c3feb017f1a2d0e57>
+         1. the only thing that seems remotely useful is the constants for colors and time of day stuff
+            1. C:\Projects\Games\Unity\HerpFarmer\Assets\Scripts\Utils\Constants.cs
+            2. <https://flatuicolors.com/palette/defo>
+      3. constants - C:\Projects\Games\Unity\HerpFarmer\Assets\Scripts\Utils\Constants.cs
+      4. Day/Night cycle
+         1. yoink this - C:\Projects\Games\Unity\HerpFarmer\Assets\Scripts\GameControl\GameTime.cs
+            1. constants too - C:\Projects\Games\Unity\HerpFarmer\Assets\Scripts\Utils\Constants.cs
+6. player
+   1. inventory - C:\Projects\Games\Unity\HerpFarmer\Assets\Scripts\Game\Item\Inventory.cs
+      1. inventory items
+         1. dict w/ hash of item + quantity
+      2. inventory summary - probably implemented in the UI
+         1. loop through items
+            1. sort by weight, type, value
+   2. equipment - C:\Projects\Games\Unity\HerpFarmer\Assets\Scripts\Game\Item\Equipment\Equipment.cs
+      1. godot groups would probably be useful for some of this
+         1. namely artifacts, charms, etc. when applying stat effects it would be simpler if they were just in groups
+         2. alternatively you could recalculate stats when a single item is (un)equipped.
+   3. health (somewhat done but needs adapted to stats once those are added)
+   4. stats - C:\Projects\Games\Unity\HerpFarmer\Assets\Scripts\Game\Stat\Stat.cs
+      1. stats will be on equipment so the calculations need to include any equipped items
+      2. str
+         1. health
+         2. attack power
+         3. block chance?
+      3. int
+         1. mana
+         2. spell power
+         3. crit chance?
+      4. dex
+         1. attack speed
+         2. move speed
+         3. dodge?
+7. enemies
+8. items
+9. npc
+10. vendor
+11. quest giver
+12. quests
+    1. C:\Projects\Games\Unity\creator kit rpg\Assets\Creator Kit - RPG\Scripts\Gameplay\Quest.cs
+13. world
+    1. outside
+    2. villages
+    3. dungeons
+
+### 10/10/2023
+
+1. continue working on the notifications ui
+   1. started working through the different types of notifications
+   2. added base notification ui
+   3. added toast notification ui
+      1. still needs a lot of work
+
+#### 10/10/2023 - Todo's for next time
+
+1. make toast notifications handle input
+   1. <https://docs.godotengine.org/en/stable/classes/class_control.html#enum-control-mousefilter>
+   2. not sure how to handle the containers honestly, or how to achieve the stacking in the event of multiple notifications
+      1. ideally they would stack in order, could just use a scroll container and forget the animations though, that might be easier... then add a button to dismiss the notifications or something idk
+2. set up some kenney tile assets with the tile addon
+   1. should probably put this stuff in an examples folder so it is easy to delete for later projects
+3. unit tests
+   1. test early and test often.
+   2. honestly think this might be less of a factor for godot since the individual scenes are run so easily so manual testing might be quicker and easier but I still think it is good to go through the practice of writing tests, I find a lot of bugs when I think through all of the scenarios and type out all of the tests.
+4. save game manager
+   1. still not sure if the godot game settings addon is good or not
+   2. good to setup framework for this now so that when pieces are added to the game it can be added to the save state one at a time
+      1. ideally it could just be a node made with composition that can save itself, not sure how this would work for like inventory or what not, item looks for an inventory signal and then saves it idk
+   3. I bet you can probably just JSON.stringify whole nodes... have to look if there are godot docs about serialization
+      1. apparently binary serialization is the way to go here, it is better all around but less human readable for debugging
+      2. binary serialization <https://docs.godotengine.org/en/stable/tutorials/io/binary_serialization_api.html#doc-binary-serialization-api>
+         1. some fields are not serialized with this method as mentioned at the bottom of this page: <https://docs.godotengine.org/en/stable/tutorials/io/saving_games.html>
+      3. example project: <https://github.com/godotengine/godot-demo-projects/tree/master/loading/serialization>
+         1. this also seemed like a decent approach: <https://www.gotut.net/save-and-load-system-for-godot-4/>
+   4. for game configs like sound settings, resolution, etc. use the config files
+      1. <https://docs.godotengine.org/en/stable/classes/class_configfile.html#class-configfile>
+5. combat system
+   1. would like to use the system similar to the shooter tutorial example using layers and adapt it to use hitbox and hurtbox instead since that is better suited for composition
+      1. hitbox
+         1. check if collision happens
+         2. check what layer it is on, who it belongs to
+         3. do damage by calling the associated hurtbox methods
+      2. hurtbox
+         1. receive damage
+   2. yoink stuff from old projects and adapt to godot
+      1. probably should just look at interfaces to try to keep it simple and cut down on time spent just perusing old code
+      2. yoink from tower defense game into herp farmer - <https://github.com/paul-mcnamee/HerpFarmer/commit/d5af028c164589644e59122c3feb017f1a2d0e57>
+         1. the only thing that seems remotely useful is the constants for colors and time of day stuff
+            1. C:\Projects\Games\Unity\HerpFarmer\Assets\Scripts\Utils\Constants.cs
+            2. <https://flatuicolors.com/palette/defo>
+      3. constants - C:\Projects\Games\Unity\HerpFarmer\Assets\Scripts\Utils\Constants.cs
+      4. Day/Night cycle
+         1. yoink this - C:\Projects\Games\Unity\HerpFarmer\Assets\Scripts\GameControl\GameTime.cs
+            1. constants too - C:\Projects\Games\Unity\HerpFarmer\Assets\Scripts\Utils\Constants.cs
+6. player
+   1. inventory - C:\Projects\Games\Unity\HerpFarmer\Assets\Scripts\Game\Item\Inventory.cs
+      1. inventory items
+         1. dict w/ hash of item + quantity
+      2. inventory summary - probably implemented in the UI
+         1. loop through items
+            1. sort by weight, type, value
+   2. equipment - C:\Projects\Games\Unity\HerpFarmer\Assets\Scripts\Game\Item\Equipment\Equipment.cs
+      1. godot groups would probably be useful for some of this
+         1. namely artifacts, charms, etc. when applying stat effects it would be simpler if they were just in groups
+         2. alternatively you could recalculate stats when a single item is (un)equipped.
+   3. health (somewhat done but needs adapted to stats once those are added)
+   4. stats - C:\Projects\Games\Unity\HerpFarmer\Assets\Scripts\Game\Stat\Stat.cs
+      1. stats will be on equipment so the calculations need to include any equipped items
+      2. str
+         1. health
+         2. attack power
+         3. block chance?
+      3. int
+         1. mana
+         2. spell power
+         3. crit chance?
+      4. dex
+         1. attack speed
+         2. move speed
+         3. dodge?
+7. enemies
+8. items
+9.  npc
+   1. vendor
+   2. quest giver
+10. quests
+    1. C:\Projects\Games\Unity\creator kit rpg\Assets\Creator Kit - RPG\Scripts\Gameplay\Quest.cs
+11. world
+    1. outside
+    2. villages
+    3. dungeons
+
+
 ### 10/9/2023
 
-1. fixed git credentials in wsl so I can just use that for terminal, very nice, no more trash powershell
-2. toasts notifications
-   1. add to the main ui, should be on the topmost visible layer at the time of the notification maybe? or maybe simpler approach would just be to specify which ui element you want to add it to.
+1. <https://github.com/rares45/godot-toasts/tree/main>
+   1. more time wasted, this doesn't work for godot 4 and also it's setting a bunch of hard coded properties that would be hard to actually adapt and use in more ways than just whatever is there already.
+2. add to the main ui, should be on the topmost visible layer at the time of the notification maybe? or maybe simpler approach would just be to specify which ui element you want to add it to.
+   1. timer to delay the start
+   2. timer to delay the duration of the timer
+   3. different ease animations can be achieved with tweens
+   4. tween.chain for multiple notifications in a row
+3. should have a queue of toasts
+    1. play the toasts from the queue when one gets put into it until it is empty
+    2. simple as that
 
 #### 10/9/2023 - Todo's for next time
 

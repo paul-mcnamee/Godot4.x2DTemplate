@@ -1,0 +1,57 @@
+[gd_scene load_steps=4 format=3 uid="uid://bkqd2wxnauxbp"]
+
+[ext_resource type="Script" path="res://ui/notifications/toast.gd" id="1_iryqh"]
+[ext_resource type="Texture2D" uid="uid://c335ox8h5y2x" path="res://ui/assets/images/blue_boxCross.png" id="1_xga4m"]
+[ext_resource type="Texture2D" uid="uid://dx0g05y6syfer" path="res://ui/assets/images/blue_button12.png" id="2_ft1r6"]
+
+[node name="Toast" type="MarginContainer" node_paths=PackedStringArray("animation")]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+script = ExtResource("1_iryqh")
+animation = NodePath("")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+layout_mode = 2
+texture = ExtResource("2_ft1r6")
+patch_margin_left = 5
+patch_margin_top = 5
+patch_margin_right = 5
+patch_margin_bottom = 5
+
+[node name="MarginContainer2" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="ToastNotificationLabel" type="Label" parent="MarginContainer2"]
+layout_mode = 2
+text = "sgdrth srth srth srth srht 
+sgdrth srth srth srth srht sfsaergsergserg gdrth srth srth srth srht hgdrhdrh drth drth drth drth drt hdrth drth dth
+sgdrth srth srthawefaw efawe fawefawef awefawe gserg fawefawef srth srht
+sgdrth srth srth srth srht 
+sgdrth srth srth srth srht "
+autowrap_mode = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 0
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="ToastNotificationButton" type="Button" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 50
+icon = ExtResource("1_xga4m")
+flat = true
+icon_alignment = 2
+
+[connection signal="pressed" from="MarginContainer/ToastNotificationButton" to="." method="_on_toast_notification_button_pressed"]
