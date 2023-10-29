@@ -8,6 +8,15 @@
 
 config_version=5
 
+[Godot4.x2DTemplate]
+
+config/achievements/local_source="res://"
+config/achievements/remote_source="https://"
+config/achievements/save_directory="C:/Users/Paul/AppData/Roaming/Godot/app_userdata/Godot4.x2DTemplate"
+config/achievements/save_file_name="achievements.json"
+config/achievements/password="PLFqmOzRv2fAmnJ51MSS8wDlL"
+config/godotenv/root_directory="res://"
+
 [SurvivorCircles]
 
 config/achievements/local_source="res://"
@@ -19,7 +28,7 @@ config/godotenv/root_directory="res://"
 
 [application]
 
-config/name="SurvivorCircles"
+config/name="Godot4.x2DTemplate"
 run/main_scene="res://ui/boot/EmptyStart.tscn"
 config/features=PackedStringArray("4.1")
 boot_splash/bg_color=Color(0.0862745, 0.0862745, 0.0862745, 1)
