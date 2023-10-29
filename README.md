@@ -1,6 +1,6 @@
-# SurvivorCircles
+# Godot4.x2DTemplate
 
-2d vampire survivor inspired game.
+Godot 4.x template for 2D games.
 
 ## Common Links
 
