@@ -1,4 +1,3 @@
-
 # Notes
 
 I will try to update the notes of the development sessions as I go so I can hopefully have a history of what I did and maybe I will learn from it or maybe it will just be cathartic to brain dump everything into one place for this game...
@@ -23,25 +22,7 @@ I will try to update the notes of the development sessions as I go so I can hope
          1. this also seemed like a decent approach: <https://www.gotut.net/save-and-load-system-for-godot-4/>
    4. for game configs like sound settings, resolution, etc. use the config files
       1. <https://docs.godotengine.org/en/stable/classes/class_configfile.html#class-configfile>
-5. combat system
-   1. would like to use the system similar to the shooter tutorial example using layers and adapt it to use hitbox and hurtbox instead since that is better suited for composition
-      1. hitbox
-         1. check if collision happens
-         2. check what layer it is on, who it belongs to
-         3. do damage by calling the associated hurtbox methods
-      2. hurtbox
-         1. receive damage
-   2. yoink stuff from old projects and adapt to godot
-      1. probably should just look at interfaces to try to keep it simple and cut down on time spent just perusing old code
-      2. yoink from tower defense game into herp farmer - <https://github.com/paul-mcnamee/HerpFarmer/commit/d5af028c164589644e59122c3feb017f1a2d0e57>
-         1. the only thing that seems remotely useful is the constants for colors and time of day stuff
-            1. C:\Projects\Games\Unity\HerpFarmer\Assets\Scripts\Utils\Constants.cs
-            2. <https://flatuicolors.com/palette/defo>
-      3. constants - C:\Projects\Games\Unity\HerpFarmer\Assets\Scripts\Utils\Constants.cs
-      4. Day/Night cycle
-         1. yoink this - C:\Projects\Games\Unity\HerpFarmer\Assets\Scripts\GameControl\GameTime.cs
-            1. constants too - C:\Projects\Games\Unity\HerpFarmer\Assets\Scripts\Utils\Constants.cs
-6. player
+5. player
    1. inventory - C:\Projects\Games\Unity\HerpFarmer\Assets\Scripts\Game\Item\Inventory.cs
       1. inventory items
          1. dict w/ hash of item + quantity
@@ -67,19 +48,36 @@ I will try to update the notes of the development sessions as I go so I can hope
          1. attack speed
          2. move speed
          3. dodge?
-7. enemies
-8. items
-9. npc
-10. vendor
-11. quest giver
-12. quests
+6. enemies
+7. items
+8. npc
+9. vendor
+10. quest giver
+11. quests
     1. C:\Projects\Games\Unity\creator kit rpg\Assets\Creator Kit - RPG\Scripts\Gameplay\Quest.cs
-13. world
+12. world
     1. outside
     2. villages
     3. dungeons
 
 ## Development Notes
+
+### 10/23/2023
+
+1. Look into hitbox and hurtbox in the godot 4 tutorial for the shooter_tutorial game. Added primitives for the hit and hurt boxes and added a player node. -- This is the tutorial that was originally followed for the layers which were added: <https://github.com/clear-code-projects/UltimateGodotIntro2D>
+   1. I think having separate boxes apart from the player collision is good for adjusting them if needed in the future. Should look at the gdquest implementation or something similar if there is something already done. Did not see many results on github for searching for hitbox and gdscript though.
+   2. started implementing a basic and hopefully adaptable solution where the hitbox and hurtbox nodes can be added to each component. Since we're not using sprites it should be easier to implement than some of the other pixel art solutions which require specific hitboxes at each frame in the animation or whatever.
+      1. hurtbox
+         1. area entered and intruder area owner is a hitbox
+            2. find if there is a calculate damage method
+            3. call the calculate damage method and pass the owner of the hurtbox
+      2. hitbox
+         1. get the damage component from the owner onload
+         2. damage call happens in hurtbox so not much to do here other than the collision, maybe just emit a signal
+      3. damage
+         1. basically just a float value for now
+      4. armor
+         1. basically just a float value for now
 
 ### 10/12/2023
 
