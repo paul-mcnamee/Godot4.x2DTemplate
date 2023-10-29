@@ -2,14 +2,6 @@
 
 Godot 4.x template for 2D games.
 
-## Common Links
-
-<https://github.com/paul-mcnamee/SurvivorCircles>
-<https://docs.godotengine.org/en/4.1/index.html>
-
-shaders
-<https://godotshaders.com/shader/?orderby=likes>
-
 ## Attributions
 
 ### Assets

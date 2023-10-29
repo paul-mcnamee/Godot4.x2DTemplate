@@ -2,6 +2,14 @@
 
 I will try to update the notes of the development sessions as I go so I can hopefully have a history of what I did and maybe I will learn from it or maybe it will just be cathartic to brain dump everything into one place for this game...
 
+## Common Links
+
+<https://godotforums.org/t/godot-4-x>
+<https://docs.godotengine.org/en/4.1/index.html>
+
+shaders
+<https://godotshaders.com/shader/?orderby=likes>
+
 ## Todo List
 
 1. look into the game global stuff from ggt, had multithreaded loading which seems useful
