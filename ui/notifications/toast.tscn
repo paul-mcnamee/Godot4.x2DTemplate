@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://c335ox8h5y2x" path="res://ui/assets/images/blue_boxCross.png" id="1_xga4m"]
 [ext_resource type="Texture2D" uid="uid://dx0g05y6syfer" path="res://ui/assets/images/blue_button12.png" id="2_ft1r6"]
 
-[node name="Toast" type="MarginContainer" node_paths=PackedStringArray("animation")]
+[node name="Toast" type="MarginContainer"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -12,7 +12,6 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 script = ExtResource("1_iryqh")
-animation = NodePath("")
 
 [node name="NinePatchRect" type="NinePatchRect" parent="."]
 layout_mode = 2

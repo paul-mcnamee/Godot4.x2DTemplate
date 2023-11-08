@@ -29,7 +29,7 @@ config/godotenv/root_directory="res://"
 [application]
 
 config/name="Godot4.x2DTemplate"
-run/main_scene="res://ui/boot/EmptyStart.tscn"
+run/main_scene="res://ui/boot/empty_start.tscn"
 config/features=PackedStringArray("4.1")
 boot_splash/bg_color=Color(0.0862745, 0.0862745, 0.0862745, 1)
 boot_splash/image="res://assets/splash.png"
@@ -39,7 +39,7 @@ config/version="0.0.1"
 [autoload]
 
 GodotLogger="*res://addons/logger/logger.gd"
-SceneManager="*res://scenes/SceneManager.tscn"
+SceneManager="*res://scenes/scene_manager.tscn"
 TransitionLayer="*res://ui/transitions/transition_layer.tscn"
 Globals="*res://globals/globals.gd"
 MenuManager="*res://ui/menu/menu_manager.gd"
