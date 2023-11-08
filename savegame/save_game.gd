@@ -1,8 +1,15 @@
 ## Script that manages saving games.
 class_name SaveGame extends Node
 
-# TODO: This is from the bitbrain template, I have no idea how good it actually is...
-# TODO: I bet you can probably just JSON.stringify the whole node... have to look if there are godot docs about serialization
+# Here is the relevant documentation for saving games: https://docs.godotengine.org/en/stable/tutorials/io/saving_games.html
+
+# Data types: JSON only offers a limited set of data types.
+# 	If you have data types that JSON doesn't have, you will need to translate your data to and from types that JSON can handle.
+# 	For example, some important types that JSON can't parse are:
+# 		Vector2, Vector3, Color, Rect2, and Quaternion.
+
+# In order for this to actually do anything the nodes you wish to save need to be added to the "Persist" group
+#	they also need to implement the save_data and load_data methods, mentioned in the godot docs link above.
 
 const ENABLED = true
 const ENCRYPTION_KEY = "godotrules"
